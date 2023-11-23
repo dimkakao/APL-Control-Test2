@@ -2,6 +2,7 @@
 module Printable
   def print_info
     puts "Name of the class -> " + self.class.to_s
+
     instance_variables.each do |instance_variable|
       name = instance_variable.to_s
       value = instance_variable_get(instance_variable).to_s
@@ -30,21 +31,21 @@ class Person
   end
 end
 
-class Car
+class Bird
   include Printable
 
-  def initialize(brand, model, year)
-    @brand = brand
-    @model = model
+  def initialize(name, color, year)
+    @name = name
+    @color = color
     @year = year
   end
 
-  def start_engine
-    puts "Engine started"
+  def eat
+    puts "I am eating"
   end
 
-  def drive(speed)
-    puts "Driving at #{speed} km/h"
+  def fly(speed)
+    puts "Flying at #{speed} km/h"
   end
 end
 
@@ -52,5 +53,5 @@ end
 michael_jordan = Person.new("Michael Jordan", 60)
 michael_jordan.print_info
 
-car = Car.new("Toyota", "Camry", 2022)
-car.print_info
+bird = Bird.new("Chika", "Red", 2022)
+bird.print_info
